@@ -1,14 +1,13 @@
-import { useReducer } from 'react';
-import { INITIAL_STATE, reducer } from './store/posts/reducer';
 import PostsList from './components/PostsList/PostsList';
 import Select from './components/Select/Select';
 import PostsContext from './context/PostsContext';
+import usePosts from './hooks/usePosts';
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
+  const posts = usePosts();
   return (
     <>
-      <PostsContext.Provider value={{ ...state, dispatch }}>
+      <PostsContext.Provider value={posts}>
         <Select />
         <PostsList />
       </PostsContext.Provider>
