@@ -1,11 +1,10 @@
 import { useReducer, useEffect } from 'react';
 import api from '../services/api';
 import { INITIAL_STATE, reducer } from '../store/posts/reducer';
-import { setPostsAction, setPostsDelete, setUserAction } from '../store/posts/actions';
+import { setPostsAction, setPostsDelete } from '../store/posts/actions';
 
 export default function usePosts(id) {
   const [posts, dispatch] = useReducer(reducer, INITIAL_STATE);
-  console.log(posts);
 
   useEffect(() => {
     (async () => {
@@ -14,11 +13,13 @@ export default function usePosts(id) {
     })();
   }, []);
 
-  const changeUser = value => dispatch(setUserAction(value));
+  useEffect(() => {
+    console.log(posts.selectedUser);
+  }, [posts.selectedUser]);
 
   const deletePost = async id => {
     await api.delete(id);
     dispatch(setPostsDelete(id));
   };
-  return { ...posts, deletePost, changeUser };
+  return { ...posts, deletePost, dispatch };
 }

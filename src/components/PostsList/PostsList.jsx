@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import PostsContext from '../../context/PostsContext';
 
 export default function PostList() {
-  // const { posts, deletePost } = usePosts();
   const { posts, deletePost } = useContext(PostsContext);
 
   return posts.length ? (

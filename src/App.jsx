@@ -1,5 +1,5 @@
 import PostsList from './components/PostsList/PostsList';
-import Select from './components/Select/Select';
+import UserFilter from './components/UserFilter/UserFilter';
 import PostsContext from './context/PostsContext';
 import usePosts from './hooks/usePosts';
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <PostsContext.Provider value={posts}>
-        <Select />
+        <UserFilter />
         <PostsList />
       </PostsContext.Provider>
     </>

@@ -10,7 +10,7 @@ const reducer = (state, { type, payload }) => {
     case SET_POSTS:
       return { ...state, posts: payload };
     case SET_USER:
-      return { ...state, selectedUser: payload };
+      return { ...state, selectedUser: state.posts.filter(item => item.userName === payload) };
     case DELETE_POSTS:
       return { ...state, posts: state.posts.filter(item => item.id !== payload) };
     default:
