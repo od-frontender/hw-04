@@ -1,4 +1,3 @@
-// import usePosts from '../../hooks/usePosts';
 import { useContext } from 'react';
 import PostsContext from '../../context/PostsContext';
 
