@@ -2,11 +2,11 @@ import { useContext } from 'react';
 import PostsContext from '../../context/PostsContext';
 
 export default function PostList() {
-  const { posts, deletePost } = useContext(PostsContext);
+  const { filtredPosts, deletePost } = useContext(PostsContext);
 
-  return posts.length ? (
+  return filtredPosts.length ? (
     <ul>
-      {posts.map(item => (
+      {filtredPosts.map(item => (
         <li key={item.id}>
           <p>User: {item.userName}</p>
           <p>Title : {item.title}</p>

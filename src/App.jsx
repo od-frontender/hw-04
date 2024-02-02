@@ -7,7 +7,7 @@ function App() {
   const posts = usePosts();
   return (
     <>
-      <PostsContext.Provider value={posts}>
+      <PostsContext.Provider value={{ ...posts }}>
         <UserFilter />
         <PostsList />
       </PostsContext.Provider>
